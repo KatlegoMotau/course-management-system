@@ -202,15 +202,20 @@ Install the following tools:
 **1. Clone the repository**
 
 **2. Navigate to the project directory**
-      cd course-management-system
-
+```bash
+cd course-management-system
+```
 **3. Start the backend and PostgreSQL using Docker**
+```bash
      docker compose up --build -d
-
+```
 **4. Run the frontend in WebStorm**
-    Open the frontend folder in WebStorm, open the terminal, and run:
-      npm install
-      npm run dev
+<br>Open the frontend folder in WebStorm, open the terminal, and run:
+   
+```bash
+npm install
+npm run dev
+```
 
 ## API Endpoints
 | HTTP method | Endpoint |
