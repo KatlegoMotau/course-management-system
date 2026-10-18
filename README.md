@@ -64,7 +64,7 @@ The project also incorporates Docker containerization to support running the bac
 ## Technologies Used
 | Technology | Purpose |
 |---|---|
-| Java 22 | Backend programming languageJava 22 |
+| Java 22 | Backend programming language Java 22 |
 | Spring Boot 4.1.1 | Backend framework |
 | Spring Web |  REST API development |
 | Spring Data JPA | Database access and persistence |
