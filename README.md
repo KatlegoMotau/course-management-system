@@ -203,10 +203,9 @@ Install the following tools:
 - Node.js and npm — running the React frontend
 
 ## Steps to Run the Application
+
 **1. Clone the repository**
-```bash
 git clone https://github.com/KatlegoMotau/course-management-system.git
-```
 
 **2. Navigate to the project directory**
 ```bash
@@ -216,7 +215,7 @@ cd course-management-system
 **3. Configure environment variables**
 Create a .env file in the project root directory and set your database password.
 ```bash
-     DB_PASSWORD=your_local_database_password
+DB_PASSWORD=your_local_database_password
 ```
 
 **4. Start the backend and database**
