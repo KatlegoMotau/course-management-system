@@ -205,7 +205,7 @@ Install the following tools:
 ## Steps to Run the Application
 
 **1. Clone the repository**
-git clone https://github.com/KatlegoMotau/course-management-system.git
+<br>https://github.com/KatlegoMotau/course-management-system.git
 
 **2. Navigate to the project directory**
 ```bash
