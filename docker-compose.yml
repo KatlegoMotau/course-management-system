@@ -1,0 +1,44 @@
+services:
+  course-postgres:
+    image: postgres:17
+    container_name: course-postgres
+    environment:
+      POSTGRES_DB: course_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in your .env file}
+    ports:
+      - "5433:5432"
+    volumes:
+      - course-data:/var/lib/postgresql/data
+    networks:
+      - course-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d course_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  course-api:
+    build:
+      context: ./backend
+    container_name: course-api
+    ports:
+      - "8081:8081"
+    environment:
+      SERVER_PORT: 8081
+      SPRING_DATASOURCE_URL: jdbc:postgresql://course-postgres:5432/course_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in your .env file}
+    depends_on:
+      course-postgres:
+        condition: service_healthy
+    networks:
+      - course-network
+
+volumes:
+  course-data:
+
+networks:
+  course-network:
+    driver: bridge
+
