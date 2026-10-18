@@ -183,11 +183,15 @@ pgAdmin 4 is used to inspect and manage the database during development.
 The database connection settings must be configured locally. Credentials are intentionally excluded from the public repository.
 
 ## Docker Configuration
-Docker is used to containerize the Spring Boot backend and PostgreSQL database.
+Docker is used to containerize the Spring Boot backend and PostgreSQL database, allowing both services to run in separate containers.
 
-The backend and database run in separate containers and communicate through a Docker network. The backend connects to PostgreSQL using the database container's service name and internal port (5432) rather than localhost.
+Docker Compose manages the containers and creates a dedicated network that allows the backend to communicate with the database using the PostgreSQL service name, course-postgres, and its internal port, 5432.
 
-The React frontend runs separately on the development machine using WebStorm and Node.js. It communicates with the backend API through HTTP requests.
+The PostgreSQL database uses a named Docker volume, course-data, to persist database records when containers are stopped or recreated.
+
+The backend is accessible from the host machine on port 8081, while PostgreSQL is accessible locally on port 5433 for tools such as pgAdmin 4.
+
+The React frontend runs separately on the development machine using WebStorm, Node.js, npm, and Vite. It communicates with the Spring Boot REST API through HTTP requests.
 
 ## Tools Required
 
@@ -200,22 +204,38 @@ Install the following tools:
 
 ## Steps to Run the Application
 **1. Clone the repository**
+```bash
+git clone https://github.com/KatlegoMotau/course-management-system.git
+```
 
 **2. Navigate to the project directory**
 ```bash
 cd course-management-system
 ```
-**3. Start the backend and PostgreSQL using Docker**
+
+**3. Configure environment variables**
+Create a .env file in the project root directory and set your database password.
 ```bash
-     docker compose up --build -d
+     DB_PASSWORD=your_local_database_password
 ```
-**4. Run the frontend in WebStorm**
-<br>Open the frontend folder in WebStorm, open the terminal, and run:
-   
+
+**4. Start the backend and database**
+From the project root directory, run:   
+```bash
+docker compose up --build -d
+```
+
+**5. Run the React frontend**
 ```bash
 npm install
 npm run dev
 ```
+
+**6. Access the application services**
+- React frontend: http://localhost:5173
+- Spring Boot API: http://localhost:8081/api/courses
+- PostgreSQL database: localhost:5433
+- Maintenance database: course_db
 
 ## API Endpoints
 | HTTP method | Endpoint |
