@@ -183,31 +183,34 @@ pgAdmin 4 is used to inspect and manage the database during development.
 The database connection settings must be configured locally. Credentials are intentionally excluded from the public repository.
 
 ## Docker Configuration
-Docker is used to containerize the Spring Boot application and PostgreSQL database.
+Docker is used to containerize the Spring Boot backend and PostgreSQL database.
 
-The backend includes a Dockerfile for building the application image.
+The backend and database run in separate containers and communicate through a Docker network. The backend connects to PostgreSQL using the database container's service name and internal port (5432) rather than localhost.
 
-The backend and database can run in separate containers and communicate through a Docker network. The backend must use the database container's network hostname and internal PostgreSQL port when connecting from within that network, rather than assuming that localhost refers to the database container.
+The React frontend runs separately on the development machine using WebStorm and Node.js. It communicates with the backend API through HTTP requests.
 
 ## Tools Required
 
 Install the following tools:
-- Java Development Kit compatible with the project configuration.
-- Maven, or use the included Maven Wrapper.
-- Node.js and npm.
-- PostgreSQL, either installed locally or running in Docker.
-- Git.
-- Docker, if running the application in containers.
+- IntelliJ IDEA — backend development
+- WebStorm — frontend development
+- Git — version control
+- Docker Desktop with Docker Compose
+- Node.js and npm — running the React frontend
 
+## Steps to Run the Application
 **1. Clone the repository**
 
-**2. Configure the backend**
+**2. Navigate to the project directory**
+      cd course-management-system
 
-**3. Connect the frontend to the backend**
+**3. Start the backend and PostgreSQL using Docker**
+     docker compose up --build -d
 
-**4. Run the frontend**
-
-**5. Run with Docker**
+**4. Run the frontend in WebStorm**
+    Open the frontend folder in WebStorm, open the terminal, and run:
+      npm install
+      npm run dev
 
 ## API Endpoints
 | HTTP method | Endpoint |
