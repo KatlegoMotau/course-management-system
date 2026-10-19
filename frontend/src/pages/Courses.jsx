@@ -7,7 +7,11 @@ function Courses({courses, onDeleteCourse, onEditCourse})  {
 
     // Filters courses based on the search text
     const filteredCourses = courses.filter((course) => {
-        return course.name.toLowerCase().includes(search.toLowerCase());
+        return(
+            course.name?.toLowerCase().includes(search.toLowerCase()) ||
+            course.duration?.toLowerCase().includes(search.toLowerCase()) ||
+            course.level?.toLowerCase().includes(search.toLowerCase())
+        );
     });
 
     return(
