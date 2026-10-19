@@ -147,14 +147,12 @@ function CourseForm({ onCourseSubmit, onCourseUpdate, onCancelEdit, editingCours
                     {editingCourse ? 'Update Course' : 'Add Course'}
                 </button>
 
-                {editingCourse && (
-                    <button type="button"
-                            onClick={onCancelEdit}
-                            className="px-4 py-3 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-700"
-                    >
-                        Cancel
-                    </button>
-                )}
+                <button type="button"
+                    onClick={onCancelEdit}
+                    className="px-4 py-3 bg-black text-white text-sm font-semibold rounded-md hover:bg-gray-700"
+                >
+                    Cancel
+                </button>
 
             </form>
 
