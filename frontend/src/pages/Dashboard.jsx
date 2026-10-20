@@ -78,11 +78,11 @@ function Dashboard({ courses }) {
                                 </p>
 
                                 <p className="my-1 text-sm text-gray-500">
-                                    Start Date: {course.startDate}
+                                    Start Date: {new Date(course.startDate).toLocaleDateString("en-GB")}
                                 </p>
 
                                 <p className="my-1 text-sm text-gray-500">
-                                    End Date: {course.endDate}
+                                    End Date: {new Date(course.endDate).toLocaleDateString("en-GB")}
                                 </p>
 
                                 <p className="my-1 text-sm text-gray-500">

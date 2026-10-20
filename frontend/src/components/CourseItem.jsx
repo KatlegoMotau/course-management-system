@@ -8,27 +8,15 @@ function CourseItem({ course, onDeleteCourse, onEditCourse }) {
             </p>
 
             <p className="my-2 text-sm text-gray-600">
-                Status: <span className={`inline-block rounded-full border px-3 py-1 font-medium 
-                            ${course.status === "Upcoming"
-                                ? "bg-gray-500 text-gray-600 border-gray-600"
-                                : course.status === "In Progress"
-                                ? "bg-yellow-500 text-yellow-600 border-yellow-600"
-                                : course.status === "Completed"
-                                ? "bg-green-500 text-green-600 border-green-600"
-                                : "bg-gray-500 text-gray-600 border-gray-600"
-                            }`
-                        }
-                        >
-                            {course.status}
-                        </span>
+                Status: {course.status}
             </p>
 
             <p className="my-2 text-sm text-gray-600">
-                Start Date: {course.startDate}
+                Start Date: {new Date(course.startDate).toLocaleDateString("en-GB")}
             </p>
 
             <p className="my-2 text-sm text-gray-600">
-                End Date: {course.endDate}
+                End Date: {new Date(course.endDate).toLocaleDateString("en-GB")}
             </p>
 
             <div className="flex gap-2 mt-5">

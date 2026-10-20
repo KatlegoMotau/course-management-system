@@ -27,6 +27,9 @@ public class CourseController {
         course.setLevel(courseRequest.getLevel());
         course.setCategory(courseRequest.getCategory());
         course.setDescription(courseRequest.getDescription());
+        course.setStatus(courseRequest.getStatus());
+        course.setStartDate(courseRequest.getStartDate());
+        course.setEndDate(courseRequest.getEndDate());
 
         Course savedCourse = courseService.createCourse(course);
 
