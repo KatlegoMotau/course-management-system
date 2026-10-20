@@ -34,6 +34,11 @@ public class CourseService {
         existingCourse.setName(course.getName());
         existingCourse.setDuration(course.getDuration());
         existingCourse.setLevel(course.getLevel());
+        existingCourse.setCategory(course.getCategory());
+        existingCourse.setDescription(course.getDescription());
+        existingCourse.setStatus(course.getStatus());
+        existingCourse.setStartDate(course.getStartDate());
+        existingCourse.setEndDate(course.getEndDate());
 
         return courseRepository.save(existingCourse);
     }
