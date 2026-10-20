@@ -24,7 +24,6 @@ public class CourseController {
         Course course = new Course();
 
         course.setName(courseRequest.getName());
-        course.setDuration(courseRequest.getDuration());
         course.setLevel(courseRequest.getLevel());
         course.setCategory(courseRequest.getCategory());
         course.setDescription(courseRequest.getDescription());
@@ -56,7 +55,6 @@ public class CourseController {
         Course course = new Course();
 
         course.setName(courseRequest.getName());
-        course.setDuration(courseRequest.getDuration());
         course.setLevel(courseRequest.getLevel());
         course.setCategory(courseRequest.getCategory());
         course.setDescription(courseRequest.getDescription());

@@ -15,7 +15,6 @@ public class Course {
 
 
     private String name;
-    private String duration;
     private String level;
     private String category;
     private String description;
@@ -30,10 +29,9 @@ public class Course {
     public Course() {
     }
 
-    public Course(Integer id, String name, String duration, String level, String category, String status, String description, Date startDate, Date endDate) {
+    public Course(Integer id, String name, String level, String category, String status, String description, Date startDate, Date endDate) {
         this.id = id;
         this.name = name;
-        this.duration = duration;
         this.level = level;
         this.category = category;
         this.status = status;
@@ -56,14 +54,6 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
     }
 
     public String getLevel() {

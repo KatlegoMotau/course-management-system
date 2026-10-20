@@ -11,9 +11,6 @@ public class CourseRequest {
     @NotBlank(message = "Course name is required")
     private String name;
 
-    @NotBlank(message = "Course duration is required")
-    private String duration;
-
     @NotBlank(message = "Course level is required")
     private String level;
 
@@ -35,10 +32,9 @@ public class CourseRequest {
     public CourseRequest() {
     }
 
-    public CourseRequest(Integer id, String name, String duration, String level, String category, String description, String status, Date startDate, Date endDate) {
+    public CourseRequest(Integer id, String name, String level, String category, String description, String status, Date startDate, Date endDate) {
         this.id = id;
         this.name = name;
-        this.duration = duration;
         this.level = level;
         this.category = category;
         this.description = description;
@@ -69,14 +65,6 @@ public class CourseRequest {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
     }
 
     public String getCategory() {

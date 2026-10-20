@@ -4,8 +4,12 @@ function CourseForm({ onCourseSubmit, onCourseUpdate, onCancelEdit, editingCours
 
     // State for the three course fields
     const [courseName, setCourseName] = useState('');
-    const [duration, setDuration] = useState('');
     const [level, setLevel] = useState('');
+    const [category, setCategory] = useState('');
+    const [description, setDescription] = useState('');
+    const [status, setStatus] = useState('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
 
     // State for displaying validation errors
     const [error, setError] = useState('');
@@ -18,14 +22,22 @@ function CourseForm({ onCourseSubmit, onCourseUpdate, onCancelEdit, editingCours
         if (editingCourse)
         {
             setCourseName(editingCourse.name);
-            setDuration(editingCourse.duration);
             setLevel(editingCourse.level);
+            setCategory(editingCourse.category);
+            setDescription(editingCourse.description);
+            setStatus(editingCourse.status);
+            setStartDate(editingCourse.startDate);
+            setEndDate(editingCourse.endDate);
         }
         else
         {
             setCourseName('');
-            setDuration('');
             setLevel('');
+            setCategory('');
+            setDescription('');
+            setStatus('');
+            setStartDate('');
+            setEndDate('');
         }
     }, [editingCourse]); // Runs on when editing changes
 
@@ -41,15 +53,39 @@ function CourseForm({ onCourseSubmit, onCourseUpdate, onCancelEdit, editingCours
             return;
         }
 
-        if(duration === '')
-        {
-            setError('Please enter the course duration.');
-            return;
-        }
-
         if (level === '')
         {
             setError('Please select a course level.');
+            return;
+        }
+
+        if (category === '')
+        {
+            setError('Please enter a course category.');
+            return;
+        }
+
+        if (description === '')
+        {
+            setError('Please enter a course description.');
+            return;
+        }
+
+        if (status === '')
+        {
+            setError('Please select a course status.');
+            return;
+        }
+
+        if (startDate === '')
+        {
+            setError('Please enter a course start date.');
+            return;
+        }
+
+        if (endDate === '')
+        {
+            setError('Please enter a course end date.');
             return;
         }
 
@@ -58,8 +94,12 @@ function CourseForm({ onCourseSubmit, onCourseUpdate, onCancelEdit, editingCours
 
         const course = {
             name: courseName,
-            duration: duration,
-            level: level
+            level: level,
+            category: category,
+            description: description,
+            status: status,
+            startDate: startDate,
+            endDate: endDate
         };
 
         if (editingCourse)
@@ -72,8 +112,12 @@ function CourseForm({ onCourseSubmit, onCourseUpdate, onCancelEdit, editingCours
         }
 
         setCourseName('');
-        setDuration('');
         setLevel('');
+        setCategory('');
+        setDescription('');
+        setStatus('');
+        setStartDate('');
+        setEndDate('');
     }
 
     return (
@@ -113,20 +157,6 @@ function CourseForm({ onCourseSubmit, onCourseUpdate, onCancelEdit, editingCours
 
                 <div className="flex flex-col gap-2">
 
-                    <label className="font-semibold text-sm text-gray-700">Duration</label>
-
-                    <input
-                        type="text"
-                        placeholder="Enter course duration"
-                        value={duration}
-                        onChange={(event) => setDuration(event.target.value)}
-                        className="w-full px-3 py-3 border border-gray-300 rounded-md text-sm text-gray-900"
-                    />
-
-                </div>
-
-                <div className="flex flex-col gap-2">
-
                     <label className="font-semibold text-sm text-gray-700">Level</label>
 
                     <select
@@ -139,6 +169,81 @@ function CourseForm({ onCourseSubmit, onCourseUpdate, onCancelEdit, editingCours
                         <option value="Intermediate">Intermediate</option>
                         <option value="Advanced">Advanced</option>
                     </select>
+
+                </div>
+
+                <div className="flex flex-col gap-2">
+                    <label className="font-semibold text-sm text-gray-700">Category</label>
+
+                    <select
+                        value={category}
+                        onChange={(event) => setCategory(event.target.value)}
+                        className="w-full px-3 py-3 border border-gray-300 rounded-md text-sm text-gray-900"
+                    >
+                        <option value="">Select category</option>
+                        <option value="Programming & Software Development">Programming & Software Development</option>
+                        <option value="Web & Mobile Development">Web & Mobile Development</option>
+                        <option value="IT & Networking">IT & Networking</option>
+                        <option value="Business & Management">Business & Management</option>
+                        <option value="Marketing & Communications">Marketing & Communications</option>
+                        <option value="Languages">Languages</option>
+                        <option value="Education & Teaching">Education & Teaching</option>
+                    </select>
+
+                </div>
+
+                <div className="flex flex-col gap-2">
+                    <label className="font-semibold text-sm text-gray-700">Status</label>
+
+                    <select
+                        value={status}
+                        onChange={(event) => setStatus(event.target.value)}
+                        className="w-full px-3 py-3 border border-gray-300 rounded-md text-sm text-gray-900"
+                    >
+                        <option value="">Select status</option>
+                        <option value="Upcoming">Upcoming</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+
+                </div>
+
+                <div className="flex flex-col gap-2">
+                    <label className="font-semibold text-sm text-gray-700">Start Date</label>
+
+                    <input
+                        type="date"
+                        placeholder="Start Date"
+                        value={startDate}
+                        onChange={(event) => setStartDate(event.target.value)}
+                        className="w-full px-3 py-3 border border-gray-300 rounded-md text-sm text-gray-900"
+                    />
+
+                </div>
+
+                <div className="flex flex-col gap-2">
+                    <label className="font-semibold text-sm text-gray-700">End Date</label>
+
+                    <input
+                    type="date"
+                    placeholder="End Date"
+                    value={endDate}
+                    onChange={(event) => setEndDate(event.target.value)}
+                    className="w-full px-3 py-3 border border-gray-300 rounded-md text-sm text-gray-900"
+                    />
+
+                </div>
+
+                <div className="flex flex-col gap-2">
+                    <label className="font-semibold text-sm text-gray-700">Description</label>
+
+                    <textarea
+                        placeholder="Enter description"
+                        value={description}
+                        onChange={(event) => setDescription(event.target.value)}
+                        className="w-full min-h-28 resize-y px-3 py-3 border border-gray-300 rounded-md text-sm text-gray-900"
+                    />
+
                 </div>
 
                 <button type="submit"

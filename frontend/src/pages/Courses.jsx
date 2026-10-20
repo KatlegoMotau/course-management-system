@@ -9,7 +9,6 @@ function Courses({courses, onDeleteCourse, onEditCourse})  {
     const filteredCourses = courses.filter((course) => {
         return(
             course.name?.toLowerCase().includes(search.toLowerCase()) ||
-            course.duration?.toLowerCase().includes(search.toLowerCase()) ||
             course.level?.toLowerCase().includes(search.toLowerCase())
         );
     });
