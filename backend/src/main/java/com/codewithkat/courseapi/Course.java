@@ -1,9 +1,10 @@
 package com.codewithkat.courseapi;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+
+import java.util.Date;
 
 @Entity
 public class Course {
@@ -16,54 +17,100 @@ public class Course {
     private String name;
     private String duration;
     private String level;
+    private String category;
+    private String description;
+    private String status;
+
+    @Temporal(TemporalType.DATE)
+    private Date startDate;
+
+    @Temporal(TemporalType.DATE)
+    private Date endDate;
 
     public Course() {
     }
 
-    public Course(Integer id, String name, String duration, String level) {
+    public Course(Integer id, String name, String duration, String level, String category, String status, String description, Date startDate, Date endDate) {
         this.id = id;
         this.name = name;
         this.duration = duration;
         this.level = level;
+        this.category = category;
+        this.status = status;
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
-    public Integer getId()
-    {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id)
-    {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getLevel()
-    {
-        return level;
-    }
-
-    public void setLevel(String level)
-    {
-        this.level = level;
-    }
-
-    public String getDuration()
-    {
-        return duration;
-    }
-
-    public void setDuration(String duration)
-    {
-        this.duration = duration;
-    }
-
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

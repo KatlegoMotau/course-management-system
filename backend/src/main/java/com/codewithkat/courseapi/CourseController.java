@@ -26,6 +26,8 @@ public class CourseController {
         course.setName(courseRequest.getName());
         course.setDuration(courseRequest.getDuration());
         course.setLevel(courseRequest.getLevel());
+        course.setCategory(courseRequest.getCategory());
+        course.setDescription(courseRequest.getDescription());
 
         Course savedCourse = courseService.createCourse(course);
 
@@ -56,6 +58,11 @@ public class CourseController {
         course.setName(courseRequest.getName());
         course.setDuration(courseRequest.getDuration());
         course.setLevel(courseRequest.getLevel());
+        course.setCategory(courseRequest.getCategory());
+        course.setDescription(courseRequest.getDescription());
+        course.setStatus(courseRequest.getStatus());
+        course.setStartDate(courseRequest.getStartDate());
+        course.setEndDate(courseRequest.getEndDate());
 
         Course updatedCourse = courseService.updateCourse(id, course);
 
