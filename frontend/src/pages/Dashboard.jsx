@@ -74,12 +74,21 @@ function Dashboard({ courses }) {
                                 <h3 className="mt-0 mb-3 text-lg text-gray-900">{course.name}</h3>
 
                                 <p className="my-1 text-sm text-gray-500">
-                                    Duration: {course.duration}
+                                    Level: {course.level}
                                 </p>
 
                                 <p className="my-1 text-sm text-gray-500">
-                                    Level: {course.level}
+                                    Start Date: {new Date(course.startDate).toLocaleDateString("en-GB")}
                                 </p>
+
+                                <p className="my-1 text-sm text-gray-500">
+                                    End Date: {new Date(course.endDate).toLocaleDateString("en-GB")}
+                                </p>
+
+                                <p className="my-1 text-sm text-gray-500">
+                                    Description: {course.description}
+                                </p>
+
                             </div>
                         ))}
 

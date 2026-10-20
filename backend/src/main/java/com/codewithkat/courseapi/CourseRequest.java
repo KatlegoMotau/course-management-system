@@ -1,8 +1,9 @@
 package com.codewithkat.courseapi;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class CourseRequest {
 
@@ -10,9 +11,6 @@ public class CourseRequest {
 
     @NotBlank(message = "Course name is required")
     private String name;
-
-    @NotBlank(message = "Course duration is required")
-    private String duration;
 
     @NotBlank(message = "Course level is required")
     private String level;
@@ -26,33 +24,24 @@ public class CourseRequest {
     @NotBlank(message = "Course status is required")
     private String status;
 
-    @NotBlank(message = "Course start date is required")
-    private Date startDate;
+    @NotNull(message = "Course start date is required")
+    private LocalDate startDate;
 
-    @NotBlank(message = "")
-    private Date endDate;
+    @NotNull(message = "Course end date is required")
+    private LocalDate endDate;
 
     public CourseRequest() {
     }
 
-    public CourseRequest(Integer id, String name, String duration, String level, String category, String description, String status, Date startDate, Date endDate) {
+    public CourseRequest(Integer id, String level, String name, String category, String description, String status, LocalDate startDate, LocalDate endDate) {
         this.id = id;
-        this.name = name;
-        this.duration = duration;
         this.level = level;
+        this.name = name;
         this.category = category;
         this.description = description;
         this.status = status;
         this.startDate = startDate;
         this.endDate = endDate;
-    }
-
-    public String getLevel() {
-        return level;
-    }
-
-    public void setLevel(String level) {
-        this.level = level;
     }
 
     public Integer getId() {
@@ -71,12 +60,12 @@ public class CourseRequest {
         this.name = name;
     }
 
-    public String getDuration() {
-        return duration;
+    public String getLevel() {
+        return level;
     }
 
-    public void setDuration(String duration) {
-        this.duration = duration;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public String getCategory() {
@@ -103,19 +92,19 @@ public class CourseRequest {
         this.status = status;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 }

@@ -4,11 +4,19 @@ function CourseItem({ course, onDeleteCourse, onEditCourse }) {
             <h3 className="mt-0 mb-4 text-xl text-gray-900">{course.name}</h3>
 
             <p className="my-2 text-sm text-gray-600">
-                Duration: {course.duration}
+                Level: {course.level}
             </p>
 
             <p className="my-2 text-sm text-gray-600">
-                Level: {course.level}
+                Status: {course.status}
+            </p>
+
+            <p className="my-2 text-sm text-gray-600">
+                Start Date: {new Date(course.startDate).toLocaleDateString("en-GB")}
+            </p>
+
+            <p className="my-2 text-sm text-gray-600">
+                End Date: {new Date(course.endDate).toLocaleDateString("en-GB")}
             </p>
 
             <div className="flex gap-2 mt-5">

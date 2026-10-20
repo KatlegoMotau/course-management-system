@@ -1,10 +1,9 @@
 package com.codewithkat.courseapi;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Entity
 public class Course {
@@ -15,29 +14,23 @@ public class Course {
 
 
     private String name;
-    private String duration;
     private String level;
     private String category;
     private String description;
     private String status;
-
-    @Temporal(TemporalType.DATE)
-    private Date startDate;
-
-    @Temporal(TemporalType.DATE)
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     public Course() {
     }
 
-    public Course(Integer id, String name, String duration, String level, String category, String status, String description, Date startDate, Date endDate) {
+    public Course(Integer id, String name, String category, String level, String description, String status, LocalDate startDate, LocalDate endDate) {
         this.id = id;
         this.name = name;
-        this.duration = duration;
-        this.level = level;
         this.category = category;
-        this.status = status;
+        this.level = level;
         this.description = description;
+        this.status = status;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -58,14 +51,6 @@ public class Course {
         this.name = name;
     }
 
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
     public String getLevel() {
         return level;
     }
@@ -82,35 +67,35 @@ public class Course {
         this.category = category;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
     public String getStatus() {
         return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
